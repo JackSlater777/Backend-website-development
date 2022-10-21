@@ -6,3 +6,5 @@ venv/
 .idea/
 # Pytest
 .pytest_cache/
+# key
+coolsite/secret_key.py

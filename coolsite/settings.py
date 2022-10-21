@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
+# from dotenv import load_dotenv
+from coolsite.secret_key import KEY
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z#b&t+9w9()snt4ey83i!(y56t8^tji#fi5hb4g1qpmkw5h-ul'
+SECRET_KEY = KEY
+# Loading a key from env file
+# dotenv_path = Path('./setenv.env')
+# load_dotenv(dotenv_path=dotenv_path)
+# password = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
