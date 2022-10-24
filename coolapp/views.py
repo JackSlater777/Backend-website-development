@@ -24,18 +24,26 @@ def films(request):
 
 
 def new(request, film_id=None):
-    """
-    Пользователь набрал домен/new - запрос прилетел сюда - метод GET - else
-    Пользователь заполнил форму и нажал Save - метод POST - создается новая форма, в неё передается request.POST
-    Происходит переадресация на страницу домен/film_id
-    """
+    # Пользователь заполнил форму и нажал Save - метод POST - создается новая форма, в неё передается request.POST
+    # Происходит переадресация на страницу домен/film_id
     if request.method == "POST":
         form = FilmForm(request.POST)
         if form.is_valid():
-            film = form.save()
-            return redirect('/{}'.format(film.id), film=film)
+            # Если сохраняем данные про новый фильм
+            if not film_id:
+                film = form.save()  # Сохранение экземпляра фильма в базу данных (здесь происходит генерация films.id)
+                return redirect(f'/{film.id}', film=film)
+            # Если обновляем данные уже внесенного фильма
+            else:
+                film = Film.objects.get(id=film_id)
+                form = FilmForm(request.POST, instance=film)
+                form.save()
+
+    # Пользователь набрал домен/film_id - запрос прилетел сюда - метод GET
     if film_id:
         film = Film.objects.get(id=film_id)
+
+    # Пользователь набрал домен/new - запрос прилетел сюда - метод GET
     else:
         film = Film()
     return render(request, 'coolapp/new.html',

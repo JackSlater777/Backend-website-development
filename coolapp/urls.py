@@ -10,5 +10,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('new/', views.new, name='new'),  # для создания нового фильма
     path('films', views.films, name='films'),  # для отображения фильмов
-    path('<int:film_id>/', views.new, name='new'),  # для вытаскивания из URN числа
+    path('<int:film_id>/', views.new, name='new'),  # для отображения фильма
 ]
