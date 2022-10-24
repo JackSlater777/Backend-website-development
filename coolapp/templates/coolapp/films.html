@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'coolapp/base.html' %}
+{% block content %}
+
+<!--Язык джанго-представлений:-->
+<!--{% - для синтаксических конструкций-->
+<!--{{ - для переменных-->
 {% for film in films %}
 <h2> {{ film.name }} </h2>
 <p> {{ film.desc }} </p>
@@ -15,5 +14,5 @@
 {% endif %}
 <p> {{ film.rate }} </p>
 {% endfor %}
-</body>
-</html>
+
+{% endblock content %}
