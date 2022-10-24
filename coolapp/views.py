@@ -8,7 +8,8 @@ def index(request):
     """
     Некая функция index, которая принимает запрос и отправляет HTTP-ответ
     """
-    return render(request, 'coolapp/index.html')
+    # return render(request, 'coolapp/index.html')
+    return render(request, 'coolapp/index.html', {'sitename': 'about films'})
 
 
 def films(request):

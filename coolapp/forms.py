@@ -8,7 +8,7 @@ class FilmForm(forms.ModelForm):
     """
     class Meta:
         model = Film
-        fields = ('name', 'desc', 'rate')
+        fields = ('name', 'desc', 'rate', 'comments')
 
 
 # поля pub_date и id заполняются сами
