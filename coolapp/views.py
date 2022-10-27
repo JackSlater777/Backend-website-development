@@ -32,7 +32,7 @@ def new(request, film_id=None):
             # Если сохраняем данные про новый фильм
             if not film_id:
                 film = form.save()  # Сохранение экземпляра фильма в базу данных (здесь происходит генерация films.id)
-                return redirect(f'/{film.id}', film=film)
+                return redirect(f'/coolapp/{film.id}', film=film)
             # Если обновляем данные уже внесенного фильма
             else:
                 film = Film.objects.get(id=film_id)
